@@ -8,11 +8,11 @@ LABEL_LEN=48
 PRED_LENS=${PRED_LENS:-"96 192 336 720"}
 RUN_TAG=${RUN_TAG:-delayed_causal_regularizer}
 TRAIN_EPOCHS=${TRAIN_EPOCHS:-10}
-BATCH_SIZE=${BATCH_SIZE:-16}
+BATCH_SIZE=${BATCH_SIZE:-32}
 use_safer=${USE_SAFER:-1}
 use_shift_safe=${USE_SHIFT_SAFE:-1}
-use_instant_causal=${USE_INSTANT_CAUSAL:-0}
-use_delayed_regularizer=${USE_DELAYED_CAUSAL_REGULARIZER:-0}
+use_instant_causal=${USE_INSTANT_CAUSAL:-1}
+use_delayed_regularizer=${USE_DELAYED_CAUSAL_REGULARIZER:-1}
 safer_alpha=${SAFER_ALPHA:-0.2}
 for PRED_LEN in $PRED_LENS; do
   MODEL_ID="ECL_${SEQ_LEN}_${PRED_LEN}_${RUN_TAG}"
@@ -38,8 +38,8 @@ for PRED_LEN in $PRED_LENS; do
     --dec_in 321 \
     --c_out 321 \
     --des Exp \
-    --d_model 512 \
-    --d_ff 2048 \
+    --d_model 32 \
+    --d_ff 32 \
     --batch_size $BATCH_SIZE \
     --train_epochs $TRAIN_EPOCHS \
     --patience 3 \
