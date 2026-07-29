@@ -11,8 +11,8 @@ TRAIN_EPOCHS=${TRAIN_EPOCHS:-10}
 BATCH_SIZE=${BATCH_SIZE:-32}
 use_safer=${USE_SAFER:-1}
 use_shift_safe=${USE_SHIFT_SAFE:-1}
-use_instant_causal=${USE_INSTANT_CAUSAL:-1}
-use_delayed_regularizer=${USE_DELAYED_CAUSAL_REGULARIZER:-1}
+use_instant_causal=${USE_INSTANT_CAUSAL:-0}
+use_delayed_regularizer=${USE_DELAYED_CAUSAL_REGULARIZER:-0}
 safer_alpha=${SAFER_ALPHA:-0.2}
 for PRED_LEN in $PRED_LENS; do
   MODEL_ID="ECL_${SEQ_LEN}_${PRED_LEN}_${RUN_TAG}"
