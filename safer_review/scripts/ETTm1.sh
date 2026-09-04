@@ -38,8 +38,8 @@ for PRED_LEN in $PRED_LENS; do
     --dec_in 7 \
     --c_out 7 \
     --des Exp \
-    --d_model 32 \
-    --d_ff 32 \
+    --d_model 128 \
+    --d_ff 256 \
     --batch_size $BATCH_SIZE \
     --train_epochs $TRAIN_EPOCHS \
     --patience 3 \
